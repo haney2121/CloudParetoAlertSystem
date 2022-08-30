@@ -17,7 +17,6 @@ const Alert = ({
         <MuiAlert severity={alertType} onClose={() => removeAlert(id)}>
           <AlertTitle>{alertTitle}</AlertTitle>
           {text}
-          <p>Expires: {timeLimit} seconds</p>
         </MuiAlert>
       </a>
     );
@@ -26,7 +25,6 @@ const Alert = ({
     <MuiAlert id={id} severity={alertType} onClose={() => removeAlert(id)}>
       <AlertTitle>{alertTitle}</AlertTitle>
       {text}
-      <p>Expires: {timeLimit} seconds</p>
     </MuiAlert>
   );
 };
