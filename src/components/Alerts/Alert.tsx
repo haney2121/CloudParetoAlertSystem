@@ -2,14 +2,7 @@ import { Alert as MuiAlert, AlertTitle } from '@mui/material';
 import { useAlertReducer } from '../../context/AlertContext';
 import { Alert as AlertType } from '../../types/Alert';
 
-const Alert = ({
-  timeLimit,
-  alertTitle,
-  text,
-  alertType,
-  link,
-  id,
-}: AlertType) => {
+const Alert = ({ alertTitle, text, alertType, link, id }: AlertType) => {
   const { removeAlert } = useAlertReducer();
   if (link) {
     return (
