@@ -6,13 +6,10 @@ import { Alert } from '../../types/Alert';
 
 // utils
 import { alertOptionTypes } from './utils';
+import { useAlertReducer } from '../../context/AlertContext';
 
-interface IProps {
-  createAlert: (alert: Alert) => void;
-  alerts: Alert[];
-}
-
-const CreateAlertForm = ({ createAlert, alerts }: IProps) => {
+const CreateAlertForm = () => {
+  const { createAlert, alerts } = useAlertReducer();
   const [alert, setAlert] = useState<Alert>({
     timeLimit: '10',
     text: '',
@@ -40,6 +37,15 @@ const CreateAlertForm = ({ createAlert, alerts }: IProps) => {
         }
       }
       createAlert(alert);
+      setError('');
+      setAlert({
+        timeLimit: '10',
+        text: '',
+        link: '',
+        alertType: 'info',
+        alertTitle: '',
+        id: '',
+      });
     } catch (err: any) {
       const e = err as unknown as Error;
       setError(e.message);
